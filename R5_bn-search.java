@@ -30,7 +30,7 @@ class bsearch {
         int r = n - 1;
 
         while (l <= r) {
-            int mid = l + (r - l) / 2; // To prevent potential overflow
+            int mid = l + (r - l) / 2; 
             if (arr[mid] == x) {
                 return mid;
             }
