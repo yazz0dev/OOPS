@@ -1,23 +1,20 @@
-//WRITE A PROGRAM TO FIND AREA OF DIFFERENT SHAPES USING OVERLOADED FUNCTION (very basic)
+//WRITE A PROGRAM TO FIND AREA OF DIFFERENT SHAPES USING OVERLOADED FUNCTION 
 
 import java.util.Scanner;     
 
 class Area
 {
-    // Method to calculate area of circle
+    
     double area(double radius)
     {
         return Math.PI * radius * radius;
     }
     
-    // Method to calculate area of rectangle
     double area(double length, double width)
     {
         return length * width;
     }
     
-    // Method to calculate area of triangle
-    // Renamed to avoid conflict with rectangle area method
     double areaTriangle(double base, double height) 
     {
         return 0.5 * base * height;
@@ -52,10 +49,10 @@ class Area
                 
             case 3:
                 System.out.print("Enter the base of the triangle: ");
-                double base = scanner.nextDouble(); // Declare and read base
+                double base = scanner.nextDouble(); 
                 System.out.print("Enter the height of the triangle: ");
                 double height = scanner.nextDouble();
-                // Call the renamed method for triangle area
+                
                 System.out.println("Area of Triangle: " + areaCalculator.areaTriangle(base, height)); 
                 break;
                 
@@ -66,5 +63,3 @@ class Area
         scanner.close();
     }
 }
-// The program calculates the area of different shapes (circle, rectangle, triangle) using method overloading.
-// The user is prompted to choose a shape and enter the necessary dimensions.

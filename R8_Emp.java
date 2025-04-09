@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
-// Create a class 'Employee' with data members Empid, Name, Salary, Address
 class Employee {
     int Empid;
     String Name;
     double Salary;
     String Address;
 
-    // Constructor to initialize the data members
+
     Employee(int empid, String name, double salary, String address) {
         this.Empid = empid;
         this.Name = name;
@@ -23,19 +22,19 @@ class Employee {
     }
 }
 
-// Create another class 'Teacher' that inherits the properties of class Employee
+
 class Teacher extends Employee {
     String department;
     String Subjects_taught;
 
-    // Constructor to initialize these data members and call the superclass constructor
+
     Teacher(int empid, String name, double salary, String address, String department, String subjects_taught) {
-        super(empid, name, salary, address); // Call Employee constructor
+        super(empid, name, salary, address); 
         this.department = department;
         this.Subjects_taught = subjects_taught;
     }
 
-    // Override display method to include Teacher specific details
+
     @Override
     void display() {
         super.display(); 
@@ -49,10 +48,10 @@ public class Emp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Use array of objects to display details of N teachers
+
         System.out.print("Enter the number of teachers: ");
         int n = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         Teacher[] teachers = new Teacher[n];
 
@@ -61,14 +60,14 @@ public class Emp {
 
             System.out.print("Employee ID: ");
             int empid = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
             System.out.print("Salary: ");
             double salary = scanner.nextDouble();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             System.out.print("Address: ");
             String address = scanner.nextLine();
