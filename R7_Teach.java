@@ -44,7 +44,7 @@ class Teacher extends Employee {
     }
 }
 
-public class Emp {
+public class Teach {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
