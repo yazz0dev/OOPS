@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 class R14_bubble {
     // Generic method to perform bubble sort
-    public static <T extends Comparable<T>> void bubbleSort(T[] array) {
+    static <T extends Comparable<T>> void bubbleSort(T[] array) {
         int n = array.length;
         boolean swapped;
 
@@ -46,7 +46,7 @@ class R14_bubble {
         }
 
         // Perform bubble sort
-        bubbleSort(array);
+        R14_bubble.bubbleSort(array);
 
         // Output sorted array
         System.out.println("Sorted array: " + Arrays.toString(array));
