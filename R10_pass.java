@@ -10,7 +10,7 @@ class AuthenticationException extends Exception {
 }
 
 // Main class to perform authentication
-class R12_pass {
+class R10_pass {
     // Hardcoded valid username and password (for demonstration)
     private static final String VALID_USERNAME = "admin";
     private static final String VALID_PASSWORD = "admin123";
