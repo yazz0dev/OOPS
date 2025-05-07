@@ -35,7 +35,7 @@ class PrimeNumbers extends Thread {
         scanner.close();
     }
 }
-public class R12_j {
+public class R12_mul {
     public static void main(String[] args) {
         MultiplicationTable tableThread = new MultiplicationTable();
         PrimeNumbers primeThread = new PrimeNumbers();
