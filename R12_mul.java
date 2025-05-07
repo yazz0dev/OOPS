@@ -32,6 +32,7 @@ class PrimeNumbers extends Thread {
             }
             num++;
         }
+        System.out.println(); 
         scanner.close();
     }
 }

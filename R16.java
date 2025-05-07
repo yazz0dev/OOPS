@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class R16 {
@@ -17,7 +16,11 @@ public class R16 {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             System.out.println("Enter text to write to the file (type 'exit' to finish):");
             String input;
-            while (!(input = scanner.nextLine()).equalsIgnoreCase("exit")) {
+            while (true) {
+                input = scanner.nextLine();
+                if (input.trim().equalsIgnoreCase("exit")) {
+                    break;
+                }
                 writer.write(input);
                 writer.newLine();
             }

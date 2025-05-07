@@ -36,7 +36,8 @@ class Server implements Runnable {
 class Client implements Runnable {
     public void run() {
         try (Socket socket = new Socket("localhost", 12345)) {
-            PrintWriter out = new PrintWriter(s17.Client server communication using Socket-TCP/IPder(new InputStreamReader(socket.getInputStream()));
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             Scanner scanner = new Scanner(System.in);
 
             String message;

@@ -70,10 +70,4 @@ public class R15 extends Applet {
     public void destroy() {
         // Destroy the applet
     }
-    @Override
-    public void paintComponents(Graphics g, int x, int y, int width, int height) {
-        // Paint components of the applet
-        super.paintComponents(g, x, y, width, height);
-    }
-
 }
