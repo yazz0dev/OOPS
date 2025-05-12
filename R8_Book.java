@@ -1,37 +1,6 @@
-//8.Write a program that has class Publisher, Book, Literature and Fiction.
-// Read the information and print the details of books from either the category, 
-// using inheritance.
-
 import java.util.Scanner;
 
-class Book {
-    String publisher;
-    String title;
-    int price;
-    String author;
-    
-    void display() {
-        System.out.println("Publisher: " + publisher);
-        System.out.println("Title: " + title);
-        System.out.println("Price: " + price);
-        System.out.println("Author: " + author);
-    }
-}
-class Literature extends Book {
-    String genre;
-    void display() {
-        super.display();
-        System.out.println("Genre: " + genre);
-    }
-}
-class Fiction extends Book {
-    String genre;
-    void display() {
-        super.display();
-        System.out.println("Genre: " + genre);
-    }
-}
-public class R10_Book {
+public class R8_Book {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
@@ -40,20 +9,29 @@ public class R10_Book {
         do {
             System.out.println("Enter 1 for Literature, 2 for Fiction, 3 to exit:");
             choice = sc.nextInt();
+            sc.nextLine(); // Consume the newline
+            
             if(choice == 3) {
                 System.out.println("Exiting...");
                 System.exit(0);
             }
+            
             System.out.print("Enter Publisher: ");
-            publisher = sc.next();
+            publisher = sc.nextLine();
+            
             System.out.print("Enter Title: ");
-            title = sc.next();
+            title = sc.nextLine();
+            
             System.out.print("Enter Price: ");
             price = sc.nextInt();
+            sc.nextLine(); // Consume the newline
+            
             System.out.print("Enter Author: ");
-            author = sc.next();
+            author = sc.nextLine();
+            
             System.out.print("Enter Genre: ");
-            genre = sc.next();
+            genre = sc.nextLine();
+            
             if (choice == 1) {
                 Literature lit = new Literature();
                 lit.publisher = publisher;
@@ -73,6 +51,6 @@ public class R10_Book {
                 System.out.println("\n***Fiction Book Details***");
                 fic.display();
             }   
-    }while (true);
+        } while (true);
     }
 }
