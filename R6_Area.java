@@ -4,62 +4,41 @@ import java.util.Scanner;
 
 class Area
 {
-    
-    double area(double radius)
+    void area(double radius)
     {
-        return Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + (Math.PI * radius * radius));
     }
-    
-    double area(double length, double width)
+
+    void area(double length, double width)
     {
-        return length * width;
+        System.out.println("Area of Rectangle: " + (length * width));
     }
-    
-    double areaTriangle(double base, double height) 
-    {
-        return 0.5 * base * height;
+
+    void area(double base, double height, int Triangle) {
+        System.out.println("Area of Triangle: " + (0.5 * base * height));
     }
-    
-    public static void main(String[] args)
-    {
-        Scanner scanner = new Scanner(System.in);
-        Area areaCalculator = new Area();
-        
-        System.out.println("Choose the shape to calculate area:");
-        System.out.println("1. Circle");
-        System.out.println("2. Rectangle");
-        System.out.println("3. Triangle");
-        
-        int choice = scanner.nextInt();
-        
-        switch (choice) {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Area a = new Area();
+        System.out.println("1.Circle \n2.Rectangle \n3.Triangle\nchoice: ");
+        int ch = sc.nextInt();
+        switch (ch) {
             case 1:
-                System.out.print("Enter the radius of the circle: ");
-                double radius = scanner.nextDouble();
-                System.out.println("Area of Circle: " + areaCalculator.area(radius));
+                System.out.print("Radius: ");
+                a.area(sc.nextDouble());
                 break;
-                
             case 2:
-                System.out.print("Enter the length of the rectangle: ");
-                double length = scanner.nextDouble();
-                System.out.print("Enter the width of the rectangle: ");
-                double width = scanner.nextDouble();
-                System.out.println("Area of Rectangle: " + areaCalculator.area(length, width));
+                System.out.print("Length & Width: ");
+                a.area(sc.nextDouble(), sc.nextDouble());
                 break;
-                
             case 3:
-                System.out.print("Enter the base of the triangle: ");
-                double base = scanner.nextDouble(); 
-                System.out.print("Enter the height of the triangle: ");
-                double height = scanner.nextDouble();
-                
-                System.out.println("Area of Triangle: " + areaCalculator.areaTriangle(base, height)); 
+                System.out.print("Base & Height: ");
+                a.area(sc.nextDouble(), sc.nextDouble(), 1);
                 break;
-                
             default:
                 System.out.println("Invalid choice.");
         }
-        
-        scanner.close();
+        sc.close();
     }
 }
