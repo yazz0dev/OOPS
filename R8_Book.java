@@ -34,45 +34,25 @@ class Fiction extends Book {
 public class Books {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choice;
-        String publisher, title, author, genre;
-        int price;
-        do {
-            System.out.println("Enter 1 for Literature, 2 for Fiction, 3 to exit:");
-            choice = sc.nextInt();
-            if(choice == 3) {
-                System.out.println("Exiting...");
-                System.exit(0);
-            }
-            System.out.print("Enter Publisher: ");
-            publisher = sc.next();
-            System.out.print("Enter Title: ");
-            title = sc.next();
-            System.out.print("Enter Price: ");
-            price = sc.nextInt();
-            System.out.print("Enter Author: ");
-            author = sc.next();
-            System.out.print("Enter Genre: ");
-            genre = sc.next();
-            if (choice == 1) {
-                Literature lit = new Literature();
-                lit.publisher = publisher;
-                lit.title = title;
-                lit.price = price;
-                lit.author = author;
-                lit.genre = genre;
-                System.out.println("\n***Literature Book Details***");
-                lit.display();
-            } else if (choice == 2) {
-                Fiction fic = new Fiction();
-                fic.publisher = publisher;
-                fic.title = title;
-                fic.price = price;
-                fic.author = author;
-                fic.genre = genre;
-                System.out.println("\n***Fiction Book Details***");
-                fic.display();
-            }   
-    }while (true);
+        while (true) {
+            System.out.println("1.Literature 2.Fiction 3.Exit");
+            int choice = sc.nextInt();
+            if (choice == 3) break;
+            Book b = (choice == 1) ? new Literature() : new Fiction();
+            System.out.print("Publisher: "); 
+            b.publisher = sc.next();
+            System.out.print("Title: "); 
+            b.title = sc.next();
+            System.out.print("Price: "); 
+            b.price = sc.nextInt();
+            System.out.print("Author: "); 
+            b.author = sc.next();
+            System.out.print("Genre: ");
+            if (b instanceof Literature) ((Literature) b).genre = sc.next();
+            else if (b instanceof Fiction) ((Fiction) b).genre = sc.next();
+            System.out.println(choice == 1 ? "\n***Literature Book Details***" : "\n***Fiction Book Details***");
+            b.display();
+        }
+        sc.close();
     }
 }
