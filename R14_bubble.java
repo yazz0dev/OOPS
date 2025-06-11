@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 class R14_bubble {
     // Generic method to perform bubble sort
-    static <T extends Comparable<T>> void bubbleSort(T[] array) {
-        int n = array.length;
+    static <T extends Comparable<T>> void bubbleSort(T[] array,int n) {
         boolean swapped;
 
         // Outer loop for each pass
@@ -32,21 +31,21 @@ class R14_bubble {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // Input size of the array
         System.out.print("Enter the number of elements: ");
-        int n = scanner.nextInt();
+        int n = sc.nextInt();
         Integer[] array = new Integer[n];
 
         // Input elements of the array
         System.out.println("Enter " + n + " integers:");
         for (int i = 0; i < n; i++) {
-            array[i] = scanner.nextInt();
+            array[i] = sc.nextInt();
         }
 
         // Perform bubble sort
-        R14_bubble.bubbleSort(array);
+        bubbleSort(array,n);
 
         // Output sorted array
         System.out.println("Sorted array: " + Arrays.toString(array));
