@@ -32,28 +32,20 @@ class Cpu {
     class Processor {
         int no_cores;
         String manufacturer;
-         
         void display() {
-            System.out.println("\n--Processor--");
-            System.out.println("Cores: "+no_cores);
-            System.out.println("Manufacturer: "+manufacturer);
+            System.out.println("--Processor--\nCores: " + no_cores + "\nManufacturer: " + manufacturer);
         }
     }
     void display() {
-        System.out.println("Price: "+price);
+        System.out.println("Price: " + price);
     }
-
     static class Ram {
-    int memory;
-    String manufacturer;
-     
-    void display() {
-        System.out.println("\n--Ram--");
-        System.out.println("Memory: "+memory);
-        System.out.println("Manufacturer: "+manufacturer);
+        int memory;
+        String manufacturer;
+        void display() {
+            System.out.println("--Ram--\nMemory: " + memory + "\nManufacturer: " + manufacturer);
+        }
     }
 }
-}
 
 
-   
