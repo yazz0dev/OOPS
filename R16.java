@@ -1,44 +1,39 @@
 //16.Write a program to write to a file, then read from the file and display the contents on the console
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class R16 {
+public class sample {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String fileName = "output.txt";
+        Scanner sc = new Scanner(System.in);
+        StringBuilder content = new StringBuilder();
 
-        // Write to the file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            System.out.println("Enter text to write to the file (type 'exit' to finish):");
-            String input;
-            while (true) {
-                input = scanner.nextLine();
-                if (input.trim().equalsIgnoreCase("exit")) {
-                    break;
-                }
-                writer.write(input);
-                writer.newLine();
+        // Collect input
+        System.out.println("Enter text (type 'exit' to finish):");
+        String input;
+        while (!(input = sc.nextLine()).trim().equals("exit")) {
+            content.append(input).append(System.lineSeparator());
+        }
+        
+        // Write all content to file at once
+        try (FileWriter writer = new FileWriter("out.txt")) {
+            writer.write(content.toString());
+        } catch (IOException e) {
+            System.err.println("Write error: " + e);
+        }
+        
+        // Read file
+        try (Scanner fileScanner = new Scanner(new File("out.txt"))) {
+            System.out.println("\nFile contents:");
+            while (fileScanner.hasNextLine()) {
+                System.out.println(fileScanner.nextLine());
             }
         } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
+            System.err.println("Read error: " + e);
         }
 
-        // Read from the file and display contents on the console
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            System.out.println("\nContents of the file:");
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading from file: " + e.getMessage());
-        }
-
-        scanner.close();
+        sc.close();
     }
 }
