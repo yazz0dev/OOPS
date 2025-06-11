@@ -1,70 +1,59 @@
 //15.Using 2D graphics commands in an applet, construct a house. 
 // On mouse click event, change the colour of the door from blue to red.
 
-import java.applet.Applet;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class R15 extends Applet {
-    private Color doorColor = Color.BLUE;
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+
+public class Home extends Applet {
+    Color door = Color.BLUE;
 
     @Override
     public void init() {
-        // Add mouse listener to change door color on click
+        // Toggle door color on mouse click
         addMouseListener(new MouseAdapter() {
-            @Override
             public void mouseClicked(MouseEvent e) {
-                if (doorColor == Color.BLUE) {
-                    doorColor = Color.RED;
-                } else {
-                    doorColor = Color.BLUE;
-                }
-                repaint(); // Repaint the applet to reflect the color change
+                // Toggle between BLUE and RED for door color
+                door = (door == Color.BLUE) ? Color.RED : Color.BLUE;
+                repaint();
             }
         });
     }
+
     @Override
     public void paint(Graphics g) {
-        // Draw the house
+        // Draw house body (yellow rectangle)
         g.setColor(Color.YELLOW);
-        g.fillRect(100, 200, 200, 150); // House body
-
-        // Draw the roof
+        g.fillRect(100, 200, 200, 100);
+        
+        // Draw triangular roof (red) 
         g.setColor(Color.RED);
-        int[] xPoints = { 80, 200, 320 };
-        int[] yPoints = { 200, 100, 200 };
-        g.fillPolygon(xPoints, yPoints, 3); // Roof
+        int[] x = {100, 200, 300};
+        int[] y = {200, 100, 200};
+        g.fillPolygon(x, y, 3);
+        
+        // Draw door (color toggles between blue/red on click)
+        g.setColor(door);
+        g.fillRect(180, 250, 40, 50); 
 
-        // Draw the door
-        g.setColor(doorColor);
-        g.fillRect(170, 270, 60, 80); // Door
     }
+
     public static void main(String[] args) {
-            // Create a frame to display the applet
-            Frame frame = new Frame("House Applet");
-            R15 applet = new R15();
-            applet.init();
-            frame.add(applet);
-            frame.setSize(400, 400);
-            frame.addWindowListener(new java.awt.event.WindowAdapter() {
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            frame.setVisible(true);
-            applet.start();
-        }
-    @Override
-    public void start() {
-        // Start the applet
-    }
-    @Override
-    public void stop() {
-        // Stop the applet
-    }
-    @Override
-    public void destroy() {
-        // Destroy the applet
+        // Create and configure the application window
+        Frame frame = new Frame("House Applet");
+        Home applet = new Home();
+        applet.init();
+        
+        frame.add(applet);
+        frame.setSize(400, 400);
+        
+        // Simple exit handler for window close button
+        frame.addWindowListener(new WindowAdapter() { 
+            public void windowClosing(WindowEvent e) { System.exit(0); }
+        });
+        
+        frame.setVisible(true);
+        applet.start();
     }
 }
