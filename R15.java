@@ -48,10 +48,7 @@ public class Home extends Applet {
         frame.add(applet);
         frame.setSize(400, 400);
         
-        // Simple exit handler for window close button
-        frame.addWindowListener(new WindowAdapter() { 
-            public void windowClosing(WindowEvent e) { System.exit(0); }
-        });
+     
         
         frame.setVisible(true);
         applet.start();
